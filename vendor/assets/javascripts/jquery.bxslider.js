@@ -1186,17 +1186,19 @@
 			// }, slider.settings.pause);
 			// // if auto controls are displayed and preventControlUpdate is not true
 			// if (slider.settings.autoControls && preventControlUpdate != true) updateAutoControls('stop');
-			// 
-			// 
 			
-			var duration = slider.children.eq(parseInt(slider.active.index)).attr("duration");
-	        if(duration == ""){
+			 el.continueAuto();
+		}
+		
+		el.continueAuto = function(preventControlUpdate){
+	        //get how long the current slide should stay
+	        var duration = slider.children.eq(parseInt(slider.active.index)).attr("duration");
+	        if(duration == "" || duration == undefined){
 	            duration = slider.settings.pause;
 	        } else {
 	            duration = parseInt(duration);
 	        }
-	        console.log(slider);
-	        console.log(duration);
+	    
 
 	        // create a timeout
 	        slider.timer = setTimeout(function(){
@@ -1206,10 +1208,11 @@
 	        // if auto controls are displayed and preventControlUpdate is not true
 	        if (slider.settings.autoControls && preventControlUpdate != true) updateAutoControls('stop');
 
+	    }
 
 
-		}
-		
+
+
 		/**
 		 * Stops the auto show
 		 *
