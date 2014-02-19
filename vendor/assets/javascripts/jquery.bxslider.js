@@ -1195,6 +1195,7 @@
 	        } else {
 	            duration = parseInt(duration);
 	        }
+	        console.log(slider);
 	        console.log(duration);
 
 	        // create a timeout
