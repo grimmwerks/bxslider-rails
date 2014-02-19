@@ -1179,13 +1179,34 @@
 		 */
 		el.startAuto = function(preventControlUpdate){
 			// if an interval already exists, disregard call
-			if(slider.interval) return;
-			// create an interval
-			slider.interval = setInterval(function(){
-				slider.settings.autoDirection == 'next' ? el.goToNextSlide() : el.goToPrevSlide();
-			}, slider.settings.pause);
-			// if auto controls are displayed and preventControlUpdate is not true
-			if (slider.settings.autoControls && preventControlUpdate != true) updateAutoControls('stop');
+			// if(slider.interval) return;
+			// // create an interval
+			// slider.interval = setInterval(function(){
+			// 	slider.settings.autoDirection == 'next' ? el.goToNextSlide() : el.goToPrevSlide();
+			// }, slider.settings.pause);
+			// // if auto controls are displayed and preventControlUpdate is not true
+			// if (slider.settings.autoControls && preventControlUpdate != true) updateAutoControls('stop');
+			// 
+			// 
+			
+			var duration = slider.children.eq(parseInt(slider.active.index)).attr("duration");
+	        if(duration == ""){
+	            duration = slider.settings.pause;
+	        } else {
+	            duration = parseInt(duration);
+	        }
+	        console.log(duration);
+
+	        // create a timeout
+	        slider.timer = setTimeout(function(){
+	            slider.settings.autoDirection == 'next' ? el.goToNextSlide() : el.goToPrevSlide();
+	            el.continueAuto();
+	        }, duration);
+	        // if auto controls are displayed and preventControlUpdate is not true
+	        if (slider.settings.autoControls && preventControlUpdate != true) updateAutoControls('stop');
+
+
+
 		}
 		
 		/**
