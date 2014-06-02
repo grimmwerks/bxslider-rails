@@ -1235,18 +1235,17 @@
 		el.startAuto = function(preventControlUpdate){
 			// if an interval already exists, disregard call
 			// if(slider.interval) return;
-// 			// create an interval
-// 			slider.interval = setInterval(function(){
-// 				slider.settings.autoDirection == 'next' ? el.goToNextSlide() : el.goToPrevSlide();
-// 			}, slider.settings.pause);
-// 			// if auto controls are displayed and preventControlUpdate is not true
-// 			if (slider.settings.autoControls && preventControlUpdate != true) updateAutoControls('stop');
-
-			 el.continueAuto();
+			// // create an interval
+			// slider.interval = setInterval(function(){
+			// 	slider.settings.autoDirection == 'next' ? el.goToNextSlide() : el.goToPrevSlide();
+			// }, slider.settings.pause);
+			// // if auto controls are displayed and preventControlUpdate is not true
+			// if (slider.settings.autoControls && preventControlUpdate != true) updateAutoControls('stop');
+			el.continueAuto();
 		}
-		
-		
-		
+
+
+
 		el.continueAuto = function(preventControlUpdate){
 	        //get how long the current slide should stay
 	        var duration = slider.children.eq(parseInt(slider.active.index)).attr("duration");
@@ -1266,9 +1265,6 @@
 	        if (slider.settings.autoControls && preventControlUpdate != true) updateAutoControls('stop');
 
 	    }
-		
-		
-		
 
 		/**
 		 * Stops the auto show
